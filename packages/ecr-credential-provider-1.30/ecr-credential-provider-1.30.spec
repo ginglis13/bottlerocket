@@ -2,8 +2,7 @@
 %global gorepo cloud-provider-aws
 %global goimport %{goproject}/%{gorepo}
 
-%global gover 1.29.0
-# %%global gover 1.30.0
+%global gover 1.30.0
 %global rpmver %{gover}
 
 %global _dwz_low_mem_die_limit 0
@@ -15,8 +14,8 @@ Summary: Amazon ECR credential provider
 License: Apache-2.0
 URL: https://github.com/kubernetes/cloud-provider-aws
 
-Source: cloud-provider-aws-%{gover}.tar.gz
-Source1: bundled-cloud-provider-aws-%{gover}.tar.gz
+Source: cloud-provider-aws-%{gover}-rc.0.tar.gz
+Source1: bundled-cloud-provider-aws-%{gover}-rc.0.tar.gz
 Source1000: clarify.toml
 
 BuildRequires: %{_cross_os}glibc-devel
@@ -44,8 +43,8 @@ Conflicts: (%{_cross_os}image-feature(no-fips) or %{name}-bin)
 %{summary}.
 
 %prep
-%setup -n %{gorepo}-%{gover} -q
-%setup -T -D -n %{gorepo}-%{gover} -b 1 -q
+%setup -n %{gorepo}-%{gover}-rc.0 -q
+%setup -T -D -n %{gorepo}-%{gover}-rc.0 -b 1 -q
 
 %build
 %set_cross_go_flags

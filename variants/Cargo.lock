@@ -288,6 +288,7 @@ dependencies = [
  "aws-iam-authenticator",
  "cni",
  "cni-plugins",
+ "early-boot-config",
  "kernel-6_1",
  "kubernetes-1_30",
  "release",
@@ -300,6 +301,7 @@ dependencies = [
  "aws-iam-authenticator",
  "cni",
  "cni-plugins",
+ "early-boot-config",
  "kernel-6_1",
  "kmod-6_1-nvidia",
  "kubernetes-1_30",
@@ -459,6 +461,13 @@ dependencies = [
 
 [[package]]
 name = "ecr-credential-provider-1_29"
+version = "0.1.0"
+dependencies = [
+ "glibc",
+]
+
+[[package]]
+name = "ecr-credential-provider-1_30"
 version = "0.1.0"
 dependencies = [
  "glibc",
@@ -694,7 +703,7 @@ name = "kubernetes-1_30"
 version = "0.1.0"
 dependencies = [
  "aws-signing-helper",
- "ecr-credential-provider-1_29",
+ "ecr-credential-provider-1_30",
  "glibc",
  "static-pods",
 ]
@@ -1299,6 +1308,7 @@ version = "0.1.0"
 dependencies = [
  "cni",
  "cni-plugins",
+ "early-boot-config",
  "kernel-6_1",
  "kubernetes-1_30",
  "open-vm-tools",
