@@ -54,6 +54,9 @@ Source20: prestart-pull-pause-ctr.conf
 Source21: dockershim-symlink.conf
 Source22: make-kubelet-dirs.conf
 
+# systemd-logind drop-in
+Source23: logind.conf
+
 Source1000: clarify.toml
 
 BuildRequires: git
@@ -163,6 +166,9 @@ ln -rs \
 
 install -d %{buildroot}%{_cross_datadir}/logdog.d
 install -p -m 0644 %{S:15} %{buildroot}%{_cross_datadir}/logdog.d
+
+install -d %{buildroot}%{_cross_libdir}/systemd/logind.conf.d
+install -p -m 0644 %{S:23} %{buildroot}%{_cross_libdir}/systemd/logind.conf.d/logind.conf
 
 %files -n %{_cross_os}kubelet-1.30
 %license LICENSE LICENSE.gonum.graph LICENSE.shell2junit LICENSE.golang PATENTS.golang
