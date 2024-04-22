@@ -14,8 +14,8 @@ Summary: Amazon ECR credential provider
 License: Apache-2.0
 URL: https://github.com/kubernetes/cloud-provider-aws
 
-Source: cloud-provider-aws-%{gover}-rc.0.tar.gz
-Source1: bundled-cloud-provider-aws-%{gover}-rc.0.tar.gz
+Source: cloud-provider-aws-%{gover}.tar.gz
+Source1: bundled-cloud-provider-aws-%{gover}.tar.gz
 Source1000: clarify.toml
 
 BuildRequires: %{_cross_os}glibc-devel
@@ -43,11 +43,13 @@ Conflicts: (%{_cross_os}image-feature(no-fips) or %{name}-bin)
 %{summary}.
 
 %prep
-%setup -n %{gorepo}-%{gover}-rc.0 -q
-%setup -T -D -n %{gorepo}-%{gover}-rc.0 -b 1 -q
+%setup -n %{gorepo}-%{gover} -q
+%setup -T -D -n %{gorepo}-%{gover} -b 1 -q
 
 %build
 %set_cross_go_flags
+
+export GO_VERSION=1.22.1
 
 go build -ldflags="${GOLDFLAGS}" -o=ecr-credential-provider cmd/ecr-credential-provider/*.go
 gofips build -ldflags="${GOLDFLAGS}" -o=fips/ecr-credential-provider cmd/ecr-credential-provider/*.go
