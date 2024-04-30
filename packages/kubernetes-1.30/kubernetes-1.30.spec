@@ -89,8 +89,10 @@ cp third_party/forked/golang/PATENTS PATENTS.golang
 
 %build
 export FORCE_HOST_GO=1
+export GO_VERSION="1.22.1"
 # Build codegen programs with the host toolchain.
 make hack/update-codegen.sh
+
 
 # Build kubelet with the target toolchain.
 export KUBE_BUILD_PLATFORMS="linux/%{_cross_go_arch}"

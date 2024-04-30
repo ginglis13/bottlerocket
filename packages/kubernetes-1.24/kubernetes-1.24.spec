@@ -90,7 +90,6 @@ export FORCE_HOST_GO=1
 # Build codegen programs with the host toolchain.
 make generated_files
 
-# Build kubelet with the target toolchain.
 export KUBE_BUILD_PLATFORMS="linux/%{_cross_go_arch}"
 export %{kube_cc}
 export GOFLAGS='-tags=dockerless'
