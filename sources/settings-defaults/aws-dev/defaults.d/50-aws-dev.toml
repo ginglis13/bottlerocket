@@ -6,3 +6,12 @@ service-checks = ["apiserver", "chronyd", "containerd", "host-containerd", "dock
 # Network
 [metadata.settings.network]
 affected-services = ["containerd", "docker", "host-containerd", "host-containers", "updog"]
+
+# Container runtime - soci.
+[services.soci-snapshotter]
+configuration-files = ["soci-config-toml"]
+restart-commands = ["/bin/systemctl try-restart soci-snapshotter.service"]
+
+[configuration-files.soci-config-toml]
+path = "/etc/soci-snapshotter-grpc/config.toml"
+template-path = "/usr/share/templates/soci-config-toml"
