@@ -16,6 +16,14 @@ overwrite-path-if-present = false
 configuration-files = ["soci-config-toml"]
 restart-commands = ["/bin/systemctl try-restart soci-snapshotter.service"]
 
+[configuration-files.image-verification-toml]
+path = "/etc/containerd/config.d/002-image-verification.toml"
+template-path = "/usr/share/templates/image-verification-toml"
+
+[configuration-files.image-digest-allowlist]
+path = "/etc/containerd/allowed-digests.txt"
+template-path = "/usr/share/templates/image-digest-allowlist"
+
 [configuration-files.soci-config-toml]
 path = "/etc/soci-snapshotter/config.toml"
 template-path = "/usr/share/templates/soci-config-toml"
