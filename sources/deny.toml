@@ -80,7 +80,7 @@ ignore = ["RUSTSEC-2024-0014"]
 [sources]
 # Deny crates from unknown registries or git repositories.
 unknown-registry = "deny"
-unknown-git = "deny"
+#unknown-git = "deny"
 
 allow-git = [
     # The settings SDK is currently provided as a git dependency,

@@ -38,6 +38,8 @@ included-packages = [
     "chrony-tools",
     "soci-snapshotter",
     "socat",
+# poc
+	"notation",
 ]
 
 [lib]
