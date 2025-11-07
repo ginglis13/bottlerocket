@@ -27,3 +27,24 @@ affected-services = ["containerd", "docker", "ecs", "host-containerd", "host-con
 # Image registry credentials
 [metadata.settings.container-registry.credentials]
 affected-services = ["ecs", "host-containers", "bootstrap-containers"]
+
+# Container runtime - image verification
+[services.image-verification]
+configuration-files = [
+  "image-verification-toml",
+  "notation-trust-policy-json",
+]
+# Reload if we disable image verification
+restart-commands = ["/bin/systemctl try-restart containerd.service"]
+
+[metadata.settings.image-verifier-plugins]
+affected-services = ["image-verification"]
+
+[configuration-files.image-verification-toml]
+path = "/etc/containerd/config.d/002-image-verification-plugins.toml"
+template-path = "/usr/share/templates/image-verification-toml"
+
+[configuration-files.notation-trust-policy-json]
+path = "/etc/notation/trustpolicy.json"
+template-path = "/usr/share/templates/notation-trust-policy-json"
+

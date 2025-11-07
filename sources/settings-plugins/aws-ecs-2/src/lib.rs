@@ -23,4 +23,5 @@ struct AwsEcs2Settings {
     cloudformation: bottlerocket_settings_models::CloudFormationSettingsV1,
     autoscaling: bottlerocket_settings_models::AutoScalingSettingsV1,
     dns: bottlerocket_settings_models::DnsSettingsV1,
+    image_verifier_plugins: bottlerocket_settings_models::ImageVerifierPluginsSettingsV1,
 }

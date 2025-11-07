@@ -24,6 +24,11 @@ included-packages = [
     "docker-init",
 # ecs
     "ecs-agent-config",
+# image signing
+    "notation",
+    "aws-signer-notation-plugin",
+    "ecr-credential-helper",
+    "notation-image-verifier",
 ]
 kernel-parameters = [
     "console=tty0",
