@@ -4,6 +4,8 @@ members = [
     "packages/settings-defaults",
     "packages/settings-plugins",
 
+    "variants/prod-1",
+    "variants/aws-dev-gpu",
     "variants/aws-dev",
     "variants/aws-ecs-2",
     "variants/aws-ecs-2-fips",

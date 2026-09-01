@@ -20,6 +20,26 @@ Requires: %{_cross_os}settings-plugin(any)
 %description
 %{summary}.
 
+%package prod-1
+Summary: Settings plugin for the prod-1 variant
+Requires: %{_cross_os}variant(prod-1)
+Provides: %{_cross_os}settings-plugin(any)
+Provides: %{_cross_os}settings-plugin(prod-1)
+Conflicts: %{_cross_os}settings-plugin(any)
+
+%description prod-1
+%{summary}.
+
+%package aws-dev-gpu
+Summary: Settings plugin for the aws-dev-gpu variant
+Requires: %{_cross_os}variant(aws-dev-gpu)
+Provides: %{_cross_os}settings-plugin(any)
+Provides: %{_cross_os}settings-plugin(aws-dev-gpu)
+Conflicts: %{_cross_os}settings-plugin(any)
+
+%description aws-dev-gpu
+%{summary}.
+
 %package aws-dev
 Summary: Settings plugin for the aws-dev variant
 Requires: %{_cross_os}variant(aws-dev)
@@ -171,6 +191,8 @@ Conflicts: %{_cross_os}settings-plugin(any)
 
 %build
 %cargo_build --manifest-path %{_builddir}/sources/Cargo.toml \
+  -p settings-plugin-prod-1 \
+  -p settings-plugin-aws-dev-gpu \
   -p settings-plugin-aws-dev \
   -p settings-plugin-aws-ecs-2 \
   -p settings-plugin-aws-ecs-3 \
@@ -188,6 +210,8 @@ install -d %{buildroot}%{_cross_factorydir}%{_cross_sysconfdir}/ld.so.conf.d
 install -d %{buildroot}%{_cross_tmpfilesdir}
 
 for plugin in \
+  prod-1 \
+  aws-dev-gpu \
   aws-dev \
   aws-ecs-2 \
   aws-ecs-3 \
@@ -214,6 +238,16 @@ done
 
 %files
 %dir %{_cross_pluginsdir}
+
+%files prod-1
+%{_cross_pluginsdir}/prod-1/libsettings.so
+%{_cross_factorydir}%{_cross_sysconfdir}/ld.so.conf.d/prod-1.conf
+%{_cross_tmpfilesdir}/settings-plugin-prod-1.conf
+
+%files aws-dev-gpu
+%{_cross_pluginsdir}/aws-dev-gpu/libsettings.so
+%{_cross_factorydir}%{_cross_sysconfdir}/ld.so.conf.d/aws-dev-gpu.conf
+%{_cross_tmpfilesdir}/settings-plugin-aws-dev-gpu.conf
 
 %files aws-dev
 %{_cross_pluginsdir}/aws-dev/libsettings.so

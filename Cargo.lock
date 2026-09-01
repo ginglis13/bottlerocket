@@ -12,6 +12,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "aws-dev-gpu"
+version = "0.1.0"
+dependencies = [
+ "settings-defaults",
+ "settings-migrations",
+ "settings-plugins",
+]
+
+[[package]]
 name = "aws-ecs-2"
 version = "0.1.0"
 dependencies = [
@@ -319,6 +328,15 @@ dependencies = [
 
 [[package]]
 name = "metal-dev"
+version = "0.1.0"
+dependencies = [
+ "settings-defaults",
+ "settings-migrations",
+ "settings-plugins",
+]
+
+[[package]]
+name = "prod-1"
 version = "0.1.0"
 dependencies = [
  "settings-defaults",

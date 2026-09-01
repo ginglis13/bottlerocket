@@ -13,6 +13,8 @@ members = [
 
     "retry-read",
 
+    "settings-defaults/prod-1",
+    "settings-defaults/aws-dev-gpu",
     "settings-defaults/aws-dev",
     "settings-defaults/aws-ecs-2",
     "settings-defaults/aws-ecs-2-nvidia",
@@ -68,6 +70,8 @@ members = [
     "settings-migrations/v1.64.0/kubernetes-container-runtime-endpoint",
     "settings-migrations/v1.64.0/hugepages-settings",
 
+    "settings-plugins/prod-1",
+    "settings-plugins/aws-dev-gpu",
     "settings-plugins/aws-dev",
     "settings-plugins/aws-ecs-2",
     "settings-plugins/aws-ecs-3",

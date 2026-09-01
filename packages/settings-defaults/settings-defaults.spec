@@ -17,6 +17,26 @@ Requires: %{_cross_os}settings-defaults(any)
 %description
 %{summary}.
 
+%package prod-1
+Summary: Settings defaults for the prod-1 variant
+Requires: %{_cross_os}variant(prod-1)
+Provides: %{_cross_os}settings-defaults(any)
+Provides: %{_cross_os}settings-defaults(prod-1)
+Conflicts: %{_cross_os}settings-defaults(any)
+
+%description prod-1
+%{summary}.
+
+%package aws-dev-gpu
+Summary: Settings defaults for the aws-dev-gpu variant
+Requires: %{_cross_os}variant(aws-dev-gpu)
+Provides: %{_cross_os}settings-defaults(any)
+Provides: %{_cross_os}settings-defaults(aws-dev-gpu)
+Conflicts: %{_cross_os}settings-defaults(any)
+
+%description aws-dev-gpu
+%{summary}.
+
 %package aws-dev
 Summary: Settings defaults for the aws-dev variant
 Requires: %{_cross_os}variant(aws-dev)
@@ -376,6 +396,8 @@ Conflicts: %{_cross_os}settings-defaults(any)
 %build
 declare -a projects
 for defaults in \
+  prod-1 \
+  aws-dev-gpu \
   aws-dev \
   aws-ecs-2 \
   aws-ecs-2-nvidia \
@@ -422,6 +444,8 @@ install -d %{buildroot}%{_cross_defaultsdir}
 install -d %{buildroot}%{_cross_tmpfilesdir}
 
 for defaults in \
+  prod-1 \
+  aws-dev-gpu \
   aws-dev \
   aws-ecs-2 \
   aws-ecs-2-nvidia \
@@ -461,6 +485,14 @@ done
 
 %files
 %dir %{_cross_defaultsdir}
+
+%files prod-1
+%{_cross_defaultsdir}/prod-1.toml
+%{_cross_tmpfilesdir}/storewolf-defaults-prod-1.conf
+
+%files aws-dev-gpu
+%{_cross_defaultsdir}/aws-dev-gpu.toml
+%{_cross_tmpfilesdir}/storewolf-defaults-aws-dev-gpu.conf
 
 %files aws-dev
 %{_cross_defaultsdir}/aws-dev.toml
