@@ -18,4 +18,5 @@ struct AwsMantle1Settings {
     cloudformation: bottlerocket_settings_models::CloudFormationSettingsV1,
     dns: bottlerocket_settings_models::DnsSettingsV1,
     image_verifier_plugins: bottlerocket_settings_models::ImageVerifierPluginsSettingsV1,
+    measurement: bottlerocket_settings_models::MeasurementSettingsV1,
 }
